@@ -35,7 +35,7 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="test.html" class="sidebar-link">
+                    <a href="#" class="sidebar-link">
                         <img src="page_admin_image/dashboard (1).svg" alt="">
                         <span>Dashboard</span>
                     </a>
@@ -65,15 +65,13 @@
             </div>
         </aside>
         <div class="main">
-            <nav class="navbar navbar-expand px-4 py-3">
-                <form action="#" class="d-none d-sm-inline-block">
-
-                </form>
+            <nav style="background-color: #EDE9D0" class="navbar navbar-expand px-4 py-3 ">
+                
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item dropdown">
-                            <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
-                                <img src="page_admin_image/Power.png" class="avatar img-fluid" alt="">
+                            <a href="#" data-bs-toggle="dropdown" class=" nav-icon pe-md-0">
+                                Log out 
                             </a>
                             <div class="dropdown-menu dropdown-menu-end rounded">
                                         <button type="button" class="btn btn-outline-danger">  <img src="page_admin_image/Power.png" alt="">Déconnexion</button>
@@ -93,7 +91,7 @@
                                     <div class="card-body py-4">
                                         <h5 class="mb-2 fw-bold">
                                             
-                                            7500
+                                            {{$diplomesCount}}
                                             
                                             <img src="page_admin_image/FileEarmarkPerson.png" class=" float-end" alt="">
                                         </h5>
@@ -114,7 +112,7 @@
                                     <div class="card-body py-4">
                                         <h5 class="mb-2 fw-bold">
                                             
-                                            7500
+                                            {{$usersCount}}
                                             
                                             <img src="page_admin_image/PersonCircle.png" class=" float-end" alt="">
                                         </h5>
@@ -135,7 +133,7 @@
                                     <div class="card-body py-4">
                                         <h5 class="mb-2 fw-bold">
                                             
-                                            14.5
+                                            {{$averageMoyenne}}
                                             
                                             <img src="page_admin_image/BarChartFill.png" class=" float-end" alt="">
                                         </h5>
@@ -154,6 +152,8 @@
                          
                        
                         </div>
+                    
+                       
                         <div class="container-fluid ">
                             <div class="mb-3 w-100 px-2">
                                 <div class="row d-flex justify-content-evenly">
@@ -162,7 +162,7 @@
                                         <canvas id="my-chart"></canvas>
                                      
                                   </div>
-                                        <div class="col-lg-6 col-md-6 ">
+                                        <div class="col-lg-3 col-md-3 ">
                                        
                                             <canvas id="my-cirle"></canvas>
                                          
@@ -174,25 +174,7 @@
                                
                                 </div>
             </main>
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row text-body-secondary">
-                        <div class="col-6 text-start ">
-                            <a class="text-body-secondary" href=" #">
-                                <strong>ENSA</strong>
-                            </a>
-                        </div>
-                        <div class="col-6 text-end text-body-secondary d-none d-md-block">
-                            <ul class="list-inline mb-0">
-                                <li class="list-inline-item">
-                                    <a class="text-body-secondary" href="#">support@ensa.un 2024</a>
-                                </li>
-                                
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+           
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

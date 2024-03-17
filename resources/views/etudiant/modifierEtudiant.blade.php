@@ -25,7 +25,7 @@
             <li class="sidebar-item">
                 <a href="#" class="sidebar-link">
                     <img src="page_admin_image/Rectangle 32.png" alt="">
-                    <span>Issam ghomari</span>
+                    <span>{{$userSession->candidature->nom}} {{$userSession->candidature->prenom}}</span>
                 </a>
             </li>
             <div class="d-flex">
@@ -37,13 +37,13 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="test.html" class="sidebar-link">
+                    <a href="#" class="sidebar-link">
                         <img src="page_admin_image/dashboard (1).svg" alt="">
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="" class="sidebar-link">
+                    <a href="#" class="sidebar-link">
                         <img src="page_admin_image/user-id-svgrepo-com (1).svg" alt="">
 
                         <span>Candidatures</span>
@@ -88,7 +88,7 @@
                 <div class="row justify-content-center">
                     <div class="col-11 col-sm-10 col-md-10 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
                         <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
-                            <h2 id="heading">Attention de modifier le donne </h2>
+                            <h2 id="heading">Pre-Inscription</h2>
                             <p>  
                                 <h4 class="text-center">en ligne des candidats au titre de l'année universitaire <center>2023-2024</center>
                             </h4>
@@ -96,9 +96,10 @@
                                  et le reçu que vous trouverez dans la dernière étape de la pré-inscription,
                                   puis présentez-vous aux guichets du service des inscriptions de votre établissement.</p>
                         </p>
-                            <form id="msform" onsubmit="hanleSubmit(e)" action="{{route('ajouterE')}}" enctype="multipart/form-data" method="post">
+                            <form id="msform" onsubmit="hanleSubmit(e)" action="{{route('etudianteupdate')}}" enctype="multipart/form-data" method="post">
                                 @csrf
                                 <!-- progressbar -->
+                                @method('PATCH')
                                <ul id="progressbar">
                                     <li class="active" id="account"><strong>Information</strong></li>
                                     <li id="personal"><strong>Type Diplome</strong></li>
@@ -121,67 +122,69 @@
                                         <div class="form-outline mb-4">
                                             <label class="form-label " for="nom">Nom:</label>
               
-                                            <input type="text" id="nom" class="form-control form-control-lg" name="nom" />
+                                            <input type="text" id="nom" value="{{$userSession->candidature->nom}}"  class="form-control form-control-lg" name="nom" />
                                           </div>
                           
                                           <div class="form-outline mb-4">
                                             <label class="form-label" for="prenom">Prenom:</label>
               
-                                            <input type="text" id="prenom" class="form-control form-control-lg" name="prenom" />
+                                            <input type="text" id="prenom" value="{{$userSession->candidature->prenom}}"    class="form-control form-control-lg" name="prenom" />
                                           </div>
                                           <div class="form-outline mb-4 d-flex justify-content-between">
                                             <label class="form-label" for="p">Sexe:</label>
                                           
-                                              <input type="radio" name="sexe" value="homme" checked>homme
+                                              <input type="radio" name="sexe" value="{{$userSession->candidature->sexe}}"   value="homme" checked>homme
                                           
-                                              <input type="radio" name="sexe" value="femme">femme
+                                              <input type="radio" name="sexe" value="{{$userSession->candidature->sexe}}"   value="femme">femme
                                            
                                           </div>
                                           <div class="form-outline mb-4">
                                             <label class="form-label" for="prenom">CIN:</label>
               
-                                            <input type="text" id="prenom" class="form-control form-control-lg" name="cin" />
+                                            <input type="text" id="prenom" value="{{$userSession->candidature->cin}}"   class="form-control form-control-lg" name="cin" />
                                           </div>
                                           <div class="form-outline mb-4">
                                             <label class="form-label" for="prenom">CNE/CME:</label>
               
-                                            <input type="text" id="prenom" class="form-control form-control-lg" name="cne_cme" />
+                                            <input type="text" id="prenom" value="{{$userSession->candidature->cne_cme}}"   class="form-control form-control-lg" name="cne_cme" />
                                           </div>
                                           <div class="form-outline mb-4">
                                             <label class="form-label" for="prenom">Date de naissance:</label>
               
-                                            <input type="date" id="prenom" class="form-control form-control-lg" name="date_naissance" />
+                                            <input type="date" id="prenom" value="{{$userSession->candidature->date_naissance}}"   class="form-control form-control-lg" name="date_naissance" />
                                           </div>
                                           <div class="form-outline mb-4">
                                             <label class="form-label" for="prenom">Nationalite :</label>
               
-                                            <input type="text" id="prenom" class="form-control form-control-lg" name="nationalite" />
+                                            <input type="text" id="prenom" value="{{$userSession->candidature->nationalite}}"   class="form-control form-control-lg" name="nationalite" />
                                           </div>
                                           <div class="form-outline mb-4">
                                             <label class="form-label" for="prenom">Ville Natale :</label>
               
-                                            <input type="text" id="prenom" class="form-control form-control-lg" name="ville_natale"  />
+                                            <input type="text" id="prenom" value="{{$userSession->candidature->ville_natale}}"   class="form-control form-control-lg" name="ville_natale"  />
                                           </div>
                                           <div class="form-outline mb-4">
                                             <label class="form-label" for="prenom">Adresse :</label>
               
-                                            <input type="text" id="prenom" class="form-control form-control-lg"  name="adresse"  />
+                                            <input type="text" id="prenom" value="{{$userSession->candidature->adresse}}"   class="form-control form-control-lg"  name="adresse"  />
                                           </div>
                                           <div class="form-outline mb-4">
                                             <label class="form-label" for="prenom">Numero Telephone :</label>
               
-                                            <input type="tel" id="prenom" class="form-control form-control-lg"  name="num_tel"  />
+                                            <input type="tel" id="prenom" value="{{$userSession->candidature->num_tel}}"   class="form-control form-control-lg"  name="num_tel"  />
                                           </div>
             
                                           <div class="form-outline mb-4">
                                             <label class="form-label" for="prenom">Photo Personnel:</label>
+                                            <td><img style="width: 2rem" class=" rounded-circle" src="{{ asset('storage/photo/' . $userSession->candidature->photo_personnel) }}" alt="Photo Personnel"></td>
+
               
-                                            <input type="file" id="prenom" class="form-control form-control-lg"  name="photo_personnel"  />
+                                            <input type="file" id="prenom" value="{{$userSession->candidature->photo_personnel}}"   class="form-control form-control-lg"  name="photo_personnel"  />
                                           </div>
                                       
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form3Example4cdg">Date d’obtention de bac:</label>
-                                                <select name="date_bac" id="" class="form-control">
+                                                <select name="date_bac" value="{{$userSession->candidature->date_bac}}"   id="" class="form-control">
                                                     <option value="">Selection date</option>
                                                     <option value="2017">2017</option>
                                                     <option value="2018">2018</option>
@@ -211,8 +214,36 @@
                                             </div>
                                         <div class="col-12">
                                             <div class="form-outline mb-4 ">
+                                                <label class="form-label" for="type_diplome">Choix de votre Etablissement:</label>
+                                                <select name="etablissement"  value="{{$userSession->etablissement}}" class="form-control">
+                                            
+                                                    <option disabled selected value="">Sélectionnez votre choix</option>
+                                                    <option value="ISTA">ISTA</option>
+                                                    <option value="EST">EST</option>
+                                                    <option value="ENSG">ENSG</option>
+                                                    <option value="fac">LA fac</option>
+
+
+                                            
+                                                </select>
+                                                   
+                                        </div>
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label" for="form3Example4cdg">Mention de Diplome :</label>
+              
+                                            <select name="mention_diplome" value="{{$userSession->mention_diplome}}" class="form-control">
+                                                <option selected value="">Select votre Montion</option>
+                                                <option value="Mention Très Bien">Mention Très Bien</option>
+                                                <option value="Mention Bien">Mention Bien</option>
+                                                <option value="Mention Assez Bien">Mention Assez Bien</option>
+                                                <option value="Sans mention">Sans mention</option>
+
+                                            </select>
+                                          </div>
+                                            
+                                            <div class="form-outline mb-4 ">
                                                 <label class="form-label" for="type_diplome">Choix de votre Diplôme:</label>
-                                                <select name="type_diplome" onchange="handleInput()" id="type_diplome" class="form-control">
+                                                <select name="type_diplome" value="{{$userSession->type_diplome}}"  onchange="handleInput()" id="type_diplome" class="form-control">
                                             
                                                     <option disabled selected value="">Sélectionnez votre choix</option>
                                                     <option value="bac+2">bac+2</option>
@@ -226,6 +257,21 @@
                                                
                                             <div id="div_input"></div>
                                         </div>
+                                        <div class="form-outline mb-4 ">
+                                            <label class="form-label" for="aute_diplome">Autre  de Diplôme:</label>
+                                            <select   onchange="AutreDiplome()" id="autre" class="form-control">
+                                        
+                                                <option disabled selected value="">Combien Diplome</option>
+                                                <option value="Diplome+1">Diplome+1</option>
+                                                <option value="Diplome+2">Diplome+2</option>
+                                                <option value="Diplome+3">Diplome+3</option>
+                                                <option value="Diplome+4">Diplome+4</option>
+                                            </select>
+                                               
+                                            
+                                           
+                                        <div id="div_input1"></div>
+                                    </div>
                                         </div>
                                                
                                         </div>
@@ -246,34 +292,23 @@
                                                 <h2 class="steps">Étape 3 - 4</h2>
                                             </div>
                                         </div>  
-                                        <div class="form-outline mb-4">
-                                            <label class="form-label" for="form3Example4cdg">Mention de Diplome :</label>
-              
-                                            <select name="mention_diplome" class="form-control">
-                                                <option selected value="">Select votre Montion</option>
-                                                <option value="Mention Très Bien">Mention Très Bien</option>
-                                                <option value="Mention Bien">Mention Bien</option>
-                                                <option value="Mention Assez Bien">Mention Assez Bien</option>
-                                                <option value="Sans mention">Sans mention</option>
-
-                                            </select>
-                                          </div>
+                                        
                                           <div class="form-outline mb-4">
                                             <label class="form-label" for="form3Example4cdg">Scan Bac :</label>
               
-                                            <input type="file" id="form3Example4cdg" name="scan_bac" class="form-control form-control-lg" />
+                                            <input type="file" value="{{$userSession->scan_bac}}" id="form3Example4cdg" name="scan_bac" class="form-control form-control-lg" />
                                           </div>
 
                                           <div class="form-outline mb-4">
                                             <label class="form-label" for="form3Example4cdg">Scan Diplome :</label>
               
-                                            <input type="file" id="form3Example4cdg" name="scan_diplome" class="form-control form-control-lg" />
+                                            <input type="file" value="{{$userSession->scan_diplome}}" id="form3Example4cdg" name="scan_diplome" class="form-control form-control-lg" />
                                           </div>
 
                                           <div class="form-outline mb-4">
                                             <label class="form-label" for="form3Example4cdg">Scan Carte Nationalite :</label>
               
-                                            <input type="file" id="form3Example4cdg" name="scan_cin" class="form-control form-control-lg" />
+                                            <input type="file" value="{{$userSession->scan_cin}}"  id="form3Example4cdg" name="scan_cin" class="form-control form-control-lg" />
                                           </div>
                                     </div> <input type="button" name="next" class="next action-button" value="Next" /> 
                                     <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
@@ -321,7 +356,7 @@
     
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <script  src="page_admin_script/script_inscription.js"></script>
-  <script src="page_admin_script/type_diplome.js"></script>
+  <script src="page_admin_script/modifier_diplome.js"></script>
 </body>
 
 </html>

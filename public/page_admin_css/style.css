@@ -20,9 +20,6 @@ li {
     list-style: none;
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-}
 
 .wrapper {
     display: flex;
@@ -37,6 +34,9 @@ body {
     transition: all 0.35s ease-in-out;
     background-color: #fff;
     min-width: 0;
+
+        background-color: #EDE9D0 !important;
+        
 }
 
 #sidebar {

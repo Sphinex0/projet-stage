@@ -16,7 +16,7 @@ class User extends Authenticatable
 
     public function candidature()
     {
-        return $this->belongsTo(Candidature::class, "user_id");
+        return $this->hasOne(Candidature::class);
     }
 
     protected $fillable = [

@@ -37,13 +37,13 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="test.html" class="sidebar-link">
+                    <a href="#" class="sidebar-link">
                         <img src="page_admin_image/dashboard (1).svg" alt="">
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="" class="sidebar-link">
+                    <a href="#" class="sidebar-link">
                         <img src="page_admin_image/user-id-svgrepo-com (1).svg" alt="">
 
                         <span>Candidatures</span>

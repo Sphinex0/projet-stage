@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\CondidatureController;
+use App\Http\Controllers\CandidatureController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,14 +28,16 @@ Route::get("/compte", [AdminController::class,'afficheDonneBase']);
 Route::get("/fiche", [AdminController::class,'fiche']);
 
 Route::get("/test", [AdminController::class,'affichetest']);
-Route::get("/etudiante/{s?}", [AdminController::class,'etudiante']);
+Route::get("/etudiante/{s?}", [CandidatureController::class,'etudiante']);
+Route::get('/index',[AdminController::class,'index'])->name('admin.index');
 
 
 
+Route::get("/etudiant", [CandidatureController::class,'create']);
+Route::post("/ajouterE", [CandidatureController::class,'store'])->name('ajouterE');
+Route::patch("/etudianteupdate", [CandidatureController::class,'etudianteupdate'])->name('etudianteupdate');
 
-Route::get("/etudiant", [CondidatureController::class,'create']);
-Route::post("/ajouterE", [CondidatureController::class,'store'])->name('ajouterE');
-Route::get('/index',[CondidatureController::class,'index']);
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
