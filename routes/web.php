@@ -23,8 +23,10 @@ Route::get('/', function () {
 Route::get("/acceuil", function(){
     return view("acceuil");
 } );
-
-Route::get("/pdf-generate", [PdfController::class,'index']);
+Route::get("/pdf", function(){
+    return view("fiche-candidat");
+} );
+Route::get("/pdf-generate", [PdfController::class,'generatePdf']);
 Route::get("/admin", [AdminController::class,'afficheDonne']);
 
 Route::get("/compte", [AdminController::class,'afficheDonneBase']);
