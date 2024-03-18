@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CandidatureController;
+use App\Http\Controllers\PdfController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,6 +23,8 @@ Route::get('/', function () {
 Route::get("/acceuil", function(){
     return view("acceuil");
 } );
+
+Route::get("/pdf-generate", [PdfController::class,'index']);
 Route::get("/admin", [AdminController::class,'afficheDonne']);
 
 Route::get("/compte", [AdminController::class,'afficheDonneBase']);
